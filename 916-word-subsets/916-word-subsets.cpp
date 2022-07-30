@@ -1,37 +1,38 @@
 class Solution {
 public:
     vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
-        vector<map<char, int>> count1;
-        map<char, int> count2;
+        int count2[26] = {0};
         vector<string> ans;
         
-        for(int i = 0;i < words1.size();i++){
-            count1.push_back(map<char, int>());
-            for(char c  : words1[i]) {
-                count1[i][c]++;
-            }
-        }
-        
-        for(int i = 0;i < words2.size();i++){
-            map<char, int> at;
+        for(int i = 0;i < words2.size();i++) {
+            int countAt[26] = {0};
             for(char c  : words2[i]) {
-                at[c]++;
-                if(at[c] > count2[c]) count2[c] = at[c];
+                countAt[c-'a']++;
+            }
+            
+            for(int j = 0;j < 26;j++) {
+                if(countAt[j] > count2[j]) count2[j] = countAt[j];
             }
         }
         
         bool flag;
-        for(int i = 0;i < words1.size();i++) {
+        for(string s : words1) {
+            int count1[26] = {0};
+            for(char c  : s) {
+                count1[c-'a']++;
+            }
+            
             flag = true;
-            for(auto [key, val] : count2) {
-                if(count1[i][key] < val) {
+            
+            for(int i = 0;i < 26;i++) {
+                if(count1[i] < count2[i]) {
                     flag = false;
                     break;
                 }
             }
-            if(flag) ans.push_back(words1[i]);
-        }
-      
+            
+            if(flag) ans.push_back(s);
+        }     
         
         return ans;
     }
