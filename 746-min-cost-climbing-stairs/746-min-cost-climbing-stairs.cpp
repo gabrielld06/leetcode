@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int memo[1001] = {0};
+    int memo[1001];
     
     int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
