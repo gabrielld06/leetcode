@@ -28,8 +28,6 @@ public:
             l++;
         }
         
-        cout << l << endl;
-        
         fast=head, slow = head;
         while(l--) {
             fast=fast->next;
