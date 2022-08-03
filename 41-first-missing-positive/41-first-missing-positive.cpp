@@ -3,17 +3,13 @@ public:
     int firstMissingPositive(vector<int>& nums) {
         // for(auto no : nums) cout << no << " ";
         // cout << endl;
-        int n = 0;
+        int aux;
         for(int i = 0; i < nums.size();i++) {
-            int j = i;
-            if(nums[j] > 0 and nums[j] <= nums.size() and nums[j] != nums[nums[j]-1]) {
-                while(nums[j] > 0 and nums[j] <= nums.size() and nums[j] != nums[nums[j]-1]) {
-                    int aux = nums[j];
-                    nums[j] = nums[nums[j]-1];
-                    nums[aux-1] = aux;
-                    n++;
-                }
-            } else n++;
+            while(nums[i] > 0 and nums[i] <= nums.size() and nums[i] != nums[nums[i]-1]) {
+                aux = nums[i];
+                nums[i] = nums[nums[i]-1];
+                nums[aux-1] = aux;
+            }
         }
         
         // for(auto no : nums) cout << no << " ";
