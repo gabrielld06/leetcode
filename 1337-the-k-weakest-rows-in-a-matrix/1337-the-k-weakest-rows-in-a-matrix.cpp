@@ -1,3 +1,10 @@
+bool compare(pair<int, int> x, pair<int, int> y) {
+    if(x.first == y.first) {
+        return x.second < y.second;
+    }
+    return x.first < y.first;
+}
+
 class Solution {
 public:    
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
@@ -12,7 +19,7 @@ public:
             p.push_back(pair<int,int>(sum, i));
         }
         
-        sort(p.begin(), p.end());
+        sort(p.begin(), p.end(), compare);
         
         vector<int> ans;
         for(int i = 0;i < k;i++) {
