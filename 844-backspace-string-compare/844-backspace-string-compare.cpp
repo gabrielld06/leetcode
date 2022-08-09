@@ -15,9 +15,7 @@ public:
                 else decJ--;
                 j--;
             }
-            
-            cout << i << " " << j << endl;
-            
+
             if(j < 0 or i < 0) break;
             
             if(s[i] != t[j]) return false;
