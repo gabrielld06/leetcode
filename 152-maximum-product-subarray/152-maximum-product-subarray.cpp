@@ -5,7 +5,7 @@ public:
         
         for(int i = 0;i < nums.size();i++) {
             mult_atual *= nums[i];
-            ans = (mult_atual > ans ? mult_atual : ans);
+            ans = max(mult_atual, ans);
             
             if(nums[i] == 0) {
                 mult_atual = 1;
@@ -15,7 +15,7 @@ public:
         mult_atual = 1;
         for(int i = nums.size()-1;i >= 0;i--) {
             mult_atual *= nums[i];
-            ans = (mult_atual > ans ? mult_atual : ans);
+            ans = max(mult_atual, ans);
             
             if(nums[i] == 0) {
                 mult_atual = 1;
