@@ -10,7 +10,7 @@ public:
     }
     
     int minEatingSpeed(vector<int>& piles, int h) {
-        long max_e = piles[0];
+        long max_e = *max_element(piles.begin(), piles.end());
         
         for(int i = 1;i < piles.size();i++) {
             if(piles[i] > max_e) max_e = piles[i];
