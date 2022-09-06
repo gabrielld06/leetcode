@@ -1,6 +1,17 @@
 class Solution {
 public:
     int romanToInt(string s) {
+        map<char, int> mp;
+        
+        mp['I'] = 1;
+        mp['V'] = 5;
+        mp['X'] = 10;
+        mp['L'] = 50;
+        mp['C'] = 100;
+        mp['D'] = 500;
+        mp['M'] = 1000;
+        
+    
         int i = 0, ans = 0;
         while(i < s.length()) {
             if(s[i] == 'I') {
@@ -33,14 +44,8 @@ public:
                 } else {
                     ans += 100;
                 }
-            } else if(s[i] == 'V'){ 
-                    ans += 5;
-            } else if(s[i] == 'L'){ 
-                    ans += 50;
-            } else if(s[i] == 'D'){ 
-                    ans += 500;
-            } else if(s[i] == 'M'){ 
-                    ans += 1000;
+            } else {
+                ans += mp[s[i]];
             }
             i++;
         }
