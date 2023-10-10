@@ -1,13 +1,8 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        set<int> seen;
+        set<int> seen(nums.begin(), nums.end());
         vector<int> vet;
-
-        for(auto e : nums) {
-            if(seen.find(e) != seen.end()) continue;
-            seen.insert(e);
-        }
 
         for(auto e : seen) {
             vet.push_back(e);
