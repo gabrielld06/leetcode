@@ -10,6 +10,6 @@ public:
             memo[i] = (memo[i - 1] < memo[i - 2] ? memo[i - 1] : memo[i - 2]) + cost[i];
         }
 
-        return min(memo[cost.size()-1], memo[cost.size()-2]);
+        return (memo[cost.size() - 1] < memo[cost.size() - 2] ? memo[cost.size() - 1] : memo[cost.size() - 2]);
     }
 };
