@@ -35,13 +35,7 @@ public:
                 aux = new NestedIterator(list[it].getList());
             }
 
-            if(aux->hasNext()) {
-                return aux->next();
-            } else {
-                aux = nullptr;
-                it++;
-                return next();
-            }
+            return aux->next();
         }
     }
     
