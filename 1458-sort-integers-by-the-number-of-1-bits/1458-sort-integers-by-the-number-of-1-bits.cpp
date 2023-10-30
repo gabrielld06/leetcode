@@ -1,4 +1,4 @@
-int memo[10001];
+int memo[10001] = {0};
 
 class Solution {
 public:
@@ -7,7 +7,7 @@ public:
         int num1 = x, num2 = y;
 
         while(x > 0) {
-            if(memo[x] != -1) {
+            if(memo[x] != 0) {
                 count_x += memo[x];
                 break;
             }
@@ -20,7 +20,7 @@ public:
         memo[x] = count_x;
         
         while(y > 0) {
-            if(memo[y] != -1) {
+            if(memo[y] != 0) {
                 count_y += memo[y];
                 break;
             }
@@ -40,8 +40,6 @@ public:
     }
 
     vector<int> sortByBits(vector<int>& arr) {
-        memset(memo, -1, sizeof(memo));
-
         std::sort(arr.begin(), arr.end(), countBits);
 
         return arr;
