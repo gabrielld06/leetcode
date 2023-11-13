@@ -1,6 +1,6 @@
-class decrease_order {
+class ascending_order {
 public:
-    decrease_order() {
+    ascending_order() {
 
     }
 
@@ -11,8 +11,8 @@ public:
 
 class SeatManager {
 public:
-    priority_queue<int, vector<int>, decrease_order> seats;
-    
+    priority_queue<int, vector<int>, ascending_order> seats;
+
     SeatManager(int n) {
         for(int i = 1;i <= n;i++) {
             seats.push(i);
